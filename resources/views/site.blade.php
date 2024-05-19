@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>BBMS | Index</title>
+    <title>Dream</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicons -->
-    <link href="{{ asset('site/img/logo.png') }}" rel="icon">
+    <link href="{{ asset('site/img/dream.jpg') }}" rel="icon">
     {{-- <!-- CSS -->
     <link rel="stylesheet" href="css/all.css" />
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -42,10 +42,10 @@
     <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <i class="icofont-clock-time"></i> Monday - Saturday, 7AM to 10PM
+                <i class="icofont-clock-time"></i> Sunday - Thrusday, 7AM to 10PM
             </div>
             <div class="d-flex align-items-center">
-                <i class="icofont-phone"></i> Call us now +254 299-999-999
+                <i class="icofont-phone"></i> Call us now +880 1799303603
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
                     <li><a href="#why">Why Donate</a></li>
                     <li><a href="#donation">Donation Process</a></li>
                     <li><a href="#departments">Departments</a></li>
-                    <li><a href="#drives">Blood Drives</a></li>
+                    {{-- <li><a href="#drives">Blood Drives</a></li> --}}
                     {{-- <li><a href="#contact">Contact</a></li> --}}
 
                     <li><a href="{{ url('appointment/') }}" class="" target="_blank">Book an Appointment</a></li>
@@ -92,10 +92,12 @@
                 <!-- Slide 1 -->
                 <div class="carousel-item active" style="background-image: url('{{ asset('site/img/slide/images3.jpg') }}')">
                     <div class="container">
-                        <h2>Welcome to <span>Donate Blood</span></h2>
-                        <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
+                        <h2>Welcome to <span>Dream</span></h2>
+                        <p>Welcome to Dream, the Khulna University of Engineering and Technology Blood Donation Club, where we save lives one pint at a time.<br>
+
+                        "The measure of life is not its duration, but its donation." — Peter Marshall</p>
                         <a href="#about" class="btn-get-started scrollto">Read More</a>
-                        <a href="#appointment" class="btn-get-started scrollto">Book Appointment</a>
+                        <a href="{{ url('appointment/') }}" class="btn-get-started scrollto" target="_blank">Book Appointment</a>
                     </div>
                 </div>
 
@@ -103,7 +105,7 @@
                 <div class="carousel-item" style="background-image: url('{{ asset('site/img/slide/images2.jpg') }}')">
                     <div class="container">
                         <h2>Donate Today</h2>
-                        <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
+                        <p>"The blood you donate gives someone another chance at life. One day, that someone may be a close relative, a friend, a loved one—or even you."</p>
                         <a href="#about" class="btn-get-started scrollto">Read More</a>
                     </div>
                 </div>
@@ -112,7 +114,7 @@
                 <div class="carousel-item" style="background-image: url('{{ asset('site/img/slide/slide-2.jpg') }}')">
                     <div class="container">
                         <h2>Save Lives</h2>
-                        <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
+                        <p>"The gift of blood is the gift of life. There is no substitute for human blood." — Dr. Charles Drew</p>
                         <a href="#about" class="btn-get-started scrollto">Read More</a>
                     </div>
                 </div>
@@ -141,14 +143,16 @@
 
                 <div class="section-title">
                     <h2>About Us</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>Welcome to Dream, the blood donation club at Khulna University of Engineering and Technology (KUET). We are dedicated to saving lives by organizing blood donation drives and encouraging students and the community to donate blood willingly. Our mission is driven by compassion, community spirit, and the desire to make a positive impact on people's lives.</p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6" data-aos="fade-right">
-                        <img src="{{asset('site/img/about-us.jpg')}}" class="img-fluid" alt="about us">
+                        <img src="{{asset('site/img/about_us.jpg')}}" class="img-fluid" alt="about us">
+                        <div class="objectives">
                             <h4>Our Objectives</h4>
-                            {{ $about->objectives}}
+                            <p>{{ $about->objectives }}</p>
+                        </div>
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
                         <h3>History & Background</h3>
@@ -175,7 +179,7 @@
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
                     <h2>Accomplishments</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>Over the years, Dream, the blood donation club at Khulna University of Engineering and Technology (KUET), has made significant strides in promoting and facilitating blood donation. Our achievements reflect the dedication and hard work of our volunteers and the overwhelming support from the KUET community.</p>
                 </div>
 
                 <div class="row no-gutters">
@@ -241,9 +245,9 @@
                 <h4>Blood components</h4>
                 <p>Your blood's main components are red cells, plasma and platelets. These are used to treat many different illnesses and conditions.</p>
                 <p>They have a short shelf life, so we always need to top up the supply:</p>
-                <li><i class="icofont-check-circled text-danger"></i>red blood cells can be stored for up to 35 days</li>
-                <li><i class="icofont-check-circled text-danger"></i>plasma can be stored for up to a year</li>
-                <li><i class="icofont-check-circled text-danger"></i>platelets can be stored for up to 7 days</li>
+                <li><i class="icofont-check-circled icon-custom"></i>red blood cells can be stored for up to 35 days</li>
+                <li><i class="icofont-check-circled icon-custom"></i>plasma can be stored for up to a year</li>
+                <li><i class="icofont-check-circled icon-custom"></i>platelets can be stored for up to 7 days</li>
               </div>
             </div>
         </div>
@@ -327,7 +331,7 @@
       </section><!-- End Appointment Section --> --}}
 
       <!-- ======= Start Drives Section ======= -->
-    <section id="drives" class="drives section-bg">
+    {{-- <section id="drives" class="drives section-bg">
         <div class="container" data-aos="fade-up">
 
           <div class="section-title">
@@ -360,7 +364,7 @@
 
 
         </div>
-      </section>
+      </section> --}}
       <!-- ======= Start Drives Section ======= -->
 
         <!-- ======= Start Donation Process ======= -->
@@ -450,25 +454,25 @@
                     <div class="col-lg-8">
                         <div class="tab-content">
                             <div class="tab-pane active show" id="tab-1">
-                                <h3>Donation</h3>
+                                <h3 style="color: #800000;">Donation</h3>
                                 <p class="font-italic">Donation is a blood bank facet that takes place in the donation centers.</p>
                                 <img src="{{asset('site/img/blood-donation.jpg')}}" alt="" class="img-fluid">
                                 <p>We recruit and mobilize blood donors to ensure sufficient safe blood for needy Kenyans by holding blood campaigns. Blood events are scheduled regulary when blood levels in our banks run low. At the donation centers, about 1 pint of blood is collected; several small test tubes of blood are also collected for testing. The blood bag and the test tube are then labeled with the same label and kept on ice for transportation to the center for processing.</p>
                             </div>
                             <div class="tab-pane" id="tab-2">
-                                <h3>Screening</h3>
+                                <h3 style="color: #800000;">Screening</h3>
                                 <p class="font-italic">Blood screening is a blood bank facet that takes place in our laboratories.</p>
                                 <img src="{{asset('site/img/blood-screening.jpg')}}" alt="" class="img-fluid">
                                 <p>The test tubes are taken to the lab.A dozen tests are performed on samples in the test tubes to establish the blood type and test for infectious diseases to ensure patients receive non-reactive blood.</p>
                             </div>
                             <div class="tab-pane" id="tab-3">
-                                <h3>Processing</h3>
+                                <h3 style="color: #800000;">Processing</h3>
                                 <p class="font-italic">Blood processing is a blood bank facet that takes place in our bank centrifuges.</p>
                                 <img src="{{asset('site/img/blood-processing.gif')}}" alt="" class="img-fluid">
                                 <p>Most whole blood donations are filtered to remove white blood cells and then spun in centrifuges to separate it into transfusable components: red cells, platelets, and plasma.</p>
                             </div>
                             <div class="tab-pane" id="tab-4">
-                                <h3>Storage</h3>
+                                <h3 style="color: #800000;">Storage</h3>
                                 <p class="font-italic">Blood Storage is a blood bank facet that takes place in the blood banks storage facilities.</p>
                                 <img src="{{asset('site/img/blood-storage.jpg')}}" alt="" class="img-fluid">
                                 <p>Different blood components are stored in different storage facilities: refrigerators, agitators, freezers and cold rooms.</p>
@@ -536,7 +540,8 @@
 
             <div class="section-title">
                 <h2>Frequently Asked Questioins</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>
+                    "Answers to Common Queries"</p>
             </div>
 
             <ul>
@@ -636,7 +641,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="text-center white">2021 © BBMS. All Rights Reserved.</p>
+                    <p class="text-center white">2024 © Dream. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
@@ -655,7 +660,7 @@
     <script src="js/main.js"></script>
     <script src="venobox/venobox.min.js"></script>
     <script src="aos/aos.js"></script> --}}
-    <script>
+    {{-- <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -670,7 +675,7 @@
             }
           });
         }
-        </script>
+        </script> --}}
 
 </body>
 <!-- ======= Start Body ======= -->

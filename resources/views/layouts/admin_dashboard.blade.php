@@ -222,12 +222,12 @@
                       <p>Staff</p>
                     </a>
              </li>
-             <li class="nav-item">
+             {{-- <li class="nav-item">
                 <a href="{{ URL::to('admin/unapproved-drives') }}" class="nav-link">
                   <i class="fa fa-ambulance"></i>
                   <p>Drives</p>
                 </a>
-         </li>
+         </li> --}}
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -245,12 +245,12 @@
                   <p>Staff</p>
                 </a>
               </li>
-              {{--<li class="nav-item">
+              <li class="nav-item">
                 <a href="{{ URL::to('admin/add-staff') }}" class="nav-link">
                   <i class="fa fa-user-plus nav-icon"></i>
                   <p>Add Staff</p>
                 </a>
-              </li>--}}
+              </li>
               <li class="nav-item">
                 <a href="{{ URL::to('admin/all-donors') }}" class="nav-link">
                   <i class="fa fa-users"></i>
@@ -334,7 +334,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-university"></i>
               <p>
@@ -356,7 +356,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-handshake"></i>
@@ -374,7 +374,7 @@
                 </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-archive"></i>
               <p>
@@ -408,8 +408,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-minus-circle"></i>
               <p>
@@ -443,8 +443,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-trash"></i>
               <p>
@@ -478,8 +478,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-book"></i>
               <p>
@@ -579,8 +579,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="ion ion-pie-graph"></i>
               <p>
@@ -680,7 +680,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-globe"></i>
@@ -710,7 +710,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="ion ion-stats-bars"></i>
               <p>
@@ -744,7 +744,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -793,7 +793,7 @@
 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2021 <a href="#">BBMS</a>.</strong>
+    <strong>Copyright &copy; 2024 <a href="#">Dream</a>.</strong>
     All rights reserved.
   </footer>
 

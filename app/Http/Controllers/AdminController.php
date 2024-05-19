@@ -22,6 +22,7 @@ use App\Models\IssuedRbc;
 use App\Models\IssuedBlood;
 use App\Models\DiscardedRbc;
 use App\Models\IssuedPlasma;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\DiscardedBlood;
 use App\Models\IssuedPlatelet;
@@ -112,16 +113,20 @@ class AdminController extends Controller
             'phone' => ['required'],
             'county' => ['required', 'string', 'max:255'],
         ];
-        $input = [
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'phone' => $request['phone'],
-            'county' => $request['county'],
-        ];
-        $this->validate($request, $constraints);
-        Bank::where('id', $id)
-            ->update($input);
-        return redirect('admin/all-banks/')->with('success', 'Bank updated successfully!');
+        $input = $request->only(['name', 'email', 'phone', 'county']);
+        
+        // Validate the request data
+        $validator = Validator::make($input, $constraints);
+    
+        // Check if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        // Validation passed, update the bank
+        $bank->update($input);
+    
+        return redirect('admin/all-banks')->with('success', 'Bank updated successfully!');
     }
 
     public function delete_bank($id)
@@ -171,7 +176,12 @@ class AdminController extends Controller
         $input = [
             'name' => $request['name'],
         ];
-        $this->validate($request, $constraints);
+        $validator = Validator::make($input, $constraints);
+    
+        // Check if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         Group::where('id', $id)
             ->update($input);
         return redirect('admin/all-blood-groups/')
@@ -195,8 +205,9 @@ class AdminController extends Controller
     public function create_staff()
     {
         $banks = Bank::all();
-        return view('admin.staff.index', compact('banks'));
+        return view('admin.create_staff', compact('banks')); // Assuming you have a separate view for creating staff
     }
+    
 
     public function store_staff(Request $request)
     {
@@ -245,11 +256,12 @@ class AdminController extends Controller
     }
 
     public function edit_staff($id)
-    {
-        $banks = Bank::all();
-        $staff = Staff::findOrFail($id);
-        return view('admin.staff.edit', compact('banks', 'staff'));
-    }
+{
+    $banks = Bank::all();
+    $staff = Staff::findOrFail($id);
+    return view('admin.staff.edit', compact('banks', 'staff'));
+}
+
 
     public function update_staff(Request $request, $id)
     {
@@ -343,223 +355,223 @@ class AdminController extends Controller
     }
 
     /******************** ADMIN DONATION - MANAGEMENT *****************************/
-    public function all_donations()
-    {
-        $donations = Donation::all();
-        return view('admin.donations.index', compact('donations'));
-    }
+    // public function all_donations()
+    // {
+    //     $donations = Donation::all();
+    //     return view('admin.donations.index', compact('donations'));
+    // }
 
     /******************** ADMIN STOCK- MANAGEMENT *****************************/
-        public function banks_stock()
-        {
-            $banks = Bank::all();
-            return view('admin.stock.index',compact('banks'));
-        }
+        // public function banks_stock()
+        // {
+        //     $banks = Bank::all();
+        //     return view('admin.stock.index',compact('banks'));
+        // }
 
-        public function bank_stock($id)
-        {
-            $blood_groups = Group::all();
-            $blood = Blood::get()->where('bank_id',$id)->whereNull('issued_at')->whereNull('discarded_at');
-            $platelets = Platelet::get()->where('bank_id',$id)->whereNull('issued_at')->whereNull('discarded_at');
-            $plasma = Plasma::get()->where('bank_id',$id)->whereNull('issued_at')->whereNull('discarded_at');
-            $rbcs = Rbc::get()->where('bank_id',$id)->whereNull('issued_at')->whereNull('discarded_at');
-            return view('admin.stock.show',compact('blood_groups','blood','platelets','plasma','rbcs'));
-        }
+        // public function bank_stock($id)
+        // {
+        //     $blood_groups = Group::all();
+        //     $blood = Blood::get()->where('bank_id',$id)->whereNull('issued_at')->whereNull('discarded_at');
+        //     $platelets = Platelet::get()->where('bank_id',$id)->whereNull('issued_at')->whereNull('discarded_at');
+        //     $plasma = Plasma::get()->where('bank_id',$id)->whereNull('issued_at')->whereNull('discarded_at');
+        //     $rbcs = Rbc::get()->where('bank_id',$id)->whereNull('issued_at')->whereNull('discarded_at');
+        //     return view('admin.stock.show',compact('blood_groups','blood','platelets','plasma','rbcs'));
+        // }
 
-        public function blood()
-        {
-            $bloods = Blood::whereNull('issued_at')->whereNull('discarded_at')->get();
-            return view('admin.stock.blood',compact('bloods'));
-        }
+        // public function blood()
+        // {
+        //     $bloods = Blood::whereNull('issued_at')->whereNull('discarded_at')->get();
+        //     return view('admin.stock.blood',compact('bloods'));
+        // }
 
-        public function plasma()
-        {
-            $plasma = Plasma::whereNull('issued_at')->whereNull('discarded_at')->get();
-            return view('admin.stock.plasma',compact('plasma'));
-        }
+        // public function plasma()
+        // {
+        //     $plasma = Plasma::whereNull('issued_at')->whereNull('discarded_at')->get();
+        //     return view('admin.stock.plasma',compact('plasma'));
+        // }
 
-        public function platelets()
-        {
-            $platelets = Platelet::whereNull('issued_at')->whereNull('discarded_at')->get();
-            return view('admin.stock.platelets',compact('platelets'));
-        }
+        // public function platelets()
+        // {
+        //     $platelets = Platelet::whereNull('issued_at')->whereNull('discarded_at')->get();
+        //     return view('admin.stock.platelets',compact('platelets'));
+        // }
 
-        public function rbc()
-        {
-            $rbc = Rbc::whereNull('issued_at')->whereNull('discarded_at')->get();
-            return view('admin.stock.rbc',compact('rbc'));
-        }
+        // public function rbc()
+        // {
+        //     $rbc = Rbc::whereNull('issued_at')->whereNull('discarded_at')->get();
+        //     return view('admin.stock.rbc',compact('rbc'));
+        // }
 
-        public function issued_blood()
-        {
-            $blood = IssuedBlood::all();
-            return view('admin.stock.issued_blood',compact('blood'));
-        }
+        // public function issued_blood()
+        // {
+        //     $blood = IssuedBlood::all();
+        //     return view('admin.stock.issued_blood',compact('blood'));
+        // }
 
-        public function issued_plasma()
-        {
-            $plasma = IssuedPlasma::all();
-            return view('admin.stock.issued_plasma',compact('plasma'));
-        }
+        // public function issued_plasma()
+        // {
+        //     $plasma = IssuedPlasma::all();
+        //     return view('admin.stock.issued_plasma',compact('plasma'));
+        // }
 
-        public function issued_platelets()
-        {
-            $platelets = IssuedPlatelet::all();
-            return view('admin.stock.issued_platelets',compact('platelets'));
-        }
+        // public function issued_platelets()
+        // {
+        //     $platelets = IssuedPlatelet::all();
+        //     return view('admin.stock.issued_platelets',compact('platelets'));
+        // }
 
-        public function issued_rbc()
-        {
-            $rbc = IssuedRbc::all();
-            return view('admin.stock.issued_rbc',compact('rbc'));
-        }
+        // public function issued_rbc()
+        // {
+        //     $rbc = IssuedRbc::all();
+        //     return view('admin.stock.issued_rbc',compact('rbc'));
+        // }
 
-        public function discarded_blood()
-        {
-            $blood  = DiscardedBlood::all();
-            return view('admin.stock.discarded_blood',compact('blood'));
-        }
+        // public function discarded_blood()
+        // {
+        //     $blood  = DiscardedBlood::all();
+        //     return view('admin.stock.discarded_blood',compact('blood'));
+        // }
 
-        public function discarded_plasma()
-        {
-            $plasma = DiscardedPlasma::all();
-            return view('admin.stock.discarded_plasma',compact('plasma'));
-        }
+        // public function discarded_plasma()
+        // {
+        //     $plasma = DiscardedPlasma::all();
+        //     return view('admin.stock.discarded_plasma',compact('plasma'));
+        // }
 
-        public function discarded_platelets()
-        {
-            $platelets = DiscardedPlatelet::all();
-            return view('admin.stock.discarded_platelets',compact('platelets'));
-        }
+        // public function discarded_platelets()
+        // {
+        //     $platelets = DiscardedPlatelet::all();
+        //     return view('admin.stock.discarded_platelets',compact('platelets'));
+        // }
 
-        public function discarded_rbc()
-        {
-            $rbc = DiscardedRbc::all();
-            return view('admin.stock.discarded_rbc',compact('rbc'));
-        }
+        // public function discarded_rbc()
+        // {
+        //     $rbc = DiscardedRbc::all();
+        //     return view('admin.stock.discarded_rbc',compact('rbc'));
+        // }
 
 
         /******************** ADMIN DRIVES- MANAGEMENT *****************************/
-        public function unapproved_drives()
-        {
-            $unapproved_drives = Drive::whereNull('approved_at')->get();
-            $approved_drives = Drive::whereNotNull('approved_at')->get();
-            return view('admin.drives.unapproved', compact('unapproved_drives','approved_drives'));
-        }
-        public function approve_drive($id)
-        {
-            $unapproved_drive = Drive::findOrFail($id);
+        // public function unapproved_drives()
+        // {
+        //     $unapproved_drives = Drive::whereNull('approved_at')->get();
+        //     $approved_drives = Drive::whereNotNull('approved_at')->get();
+        //     return view('admin.drives.unapproved', compact('unapproved_drives','approved_drives'));
+        // }
+        // public function approve_drive($id)
+        // {
+        //     $unapproved_drive = Drive::findOrFail($id);
 
-            $admin_id=Auth::user()->id;
-            $approved_at = Carbon::now();
+        //     $admin_id=Auth::user()->id;
+        //     $approved_at = Carbon::now();
 
-            $input = [
-                'admin_id' => $admin_id,
-                'approved_at' => $approved_at,
-            ];
+        //     $input = [
+        //         'admin_id' => $admin_id,
+        //         'approved_at' => $approved_at,
+        //     ];
 
-            // dd($input);
-            Drive::where('id', $id)
-                ->update($input);
+        //     // dd($input);
+        //     Drive::where('id', $id)
+        //         ->update($input);
 
-            $donors = User::all();
-            foreach ($donors as $donor) {
-                $donor->notify(new DonorNewDriveNotification($unapproved_drive));
-            }
-            return redirect('admin/unapproved-drives')->withMessage('Drive Approved successfully!');
-        }
+        //     $donors = User::all();
+        //     foreach ($donors as $donor) {
+        //         $donor->notify(new DonorNewDriveNotification($unapproved_drive));
+        //     }
+        //     return redirect('admin/unapproved-drives')->withMessage('Drive Approved successfully!');
+        // }
 
         /******************** ADMIN REPORTS- MANAGEMENT *****************************/
-        public function donors_pdf(Request $request)
-        {
-            $users = User::all();
-            $pdf = PDF::loadView('reports.donors', compact('users'));
-            return $pdf->stream();
-        }
-        public function staff_pdf(Request $request)
-        {
-            $staff = Staff::all();
-            $pdf = PDF::loadView('reports.staff', compact('staff'));
-            return $pdf->stream();
-        }
-        public function donations_pdf()
-        {
-            $donations = Donation::all();
-            $pdf = PDF::loadView('reports.donations', compact('donations'));
-            return $pdf->stream();
-        }
-        public function blood_pdf(Request $request)
-        {
-            $blood = Blood::whereNull('issued_at')->whereNull('discarded_at')->get();
-            $pdf = PDF::loadView('reports.blood', compact('blood'));
-            return $pdf->stream();
-        }
-        public function plasma_pdf(Request $request)
-        {
-            $plasma = Plasma::whereNull('issued_at')->whereNull('discarded_at')->get();
-            $pdf = PDF::loadView('reports.plasma', compact('plasma'));
-            return $pdf->stream();
-        }
-        public function platelets_pdf(Request $request)
-        {
-            $platelets = Platelet::whereNull('issued_at')->whereNull('discarded_at')->get();
-            $pdf = PDF::loadView('reports.platelets', compact('platelets'));
-            return $pdf->stream();
-        }
-        public function rbc_pdf(Request $request)
-        {
-            $rbc = Rbc::whereNull('issued_at')->whereNull('discarded_at')->get();
-            $pdf = PDF::loadView('reports.rbc', compact('rbc'));
-            return $pdf->stream();
-        }
-         public function issued_plasma_pdf(Request $request)
-        {
-            $plasma = IssuedPlasma::all();
-            $pdf = PDF::loadView('reports.issued_plasma', compact('plasma'));
-            return $pdf->stream();
-        }
-        public function issued_platelets_pdf(Request $request)
-        {
-            $platelets = IssuedPlatelet::all();
-            $pdf = PDF::loadView('reports.issued_platelets', compact('platelets'));
-            return $pdf->stream();
-        }
-        public function issued_rbc_pdf(Request $request)
-        {
-            $rbc = IssuedRbc::all();
-            $pdf = PDF::loadView('reports.issued_rbc', compact('rbc'));
-            return $pdf->stream();
-        }
-        public function issued_blood_pdf(Request $request)
-        {
-            $blood = IssuedBlood::all();
-            $pdf = PDF::loadView('reports.issued_blood', compact('blood'));
-            return $pdf->stream();
-        }
-        public function discarded_plasma_pdf(Request $request)
-        {
-            $plasma = DiscardedPlasma::all();
-            $pdf = PDF::loadView('reports.discarded_plasma', compact('plasma'));
-            return $pdf->stream();
-        }
-        public function discarded_platelets_pdf(Request $request)
-        {
-            $platelets = DiscardedPlatelet::all();
-            $pdf = PDF::loadView('reports.discarded_platelets', compact('platelets'));
-            return $pdf->stream();
-        }
-        public function discarded_rbc_pdf(Request $request)
-        {
-            $rbc = DiscardedRbc::all();
-            $pdf = PDF::loadView('reports.discarded_rbc', compact('rbc'));
-            return $pdf->stream();
-        }
-        public function discarded_blood_pdf(Request $request)
-        {
-            $blood = DiscardedBlood::all();
-            $pdf = PDF::loadView('reports.discarded_blood', compact('blood'));
-            return $pdf->stream();
-        }
+        // public function donors_pdf(Request $request)
+        // {
+        //     $users = User::all();
+        //     $pdf = PDF::loadView('reports.donors', compact('users'));
+        //     return $pdf->stream();
+        // }
+        // public function staff_pdf(Request $request)
+        // {
+        //     $staff = Staff::all();
+        //     $pdf = PDF::loadView('reports.staff', compact('staff'));
+        //     return $pdf->stream();
+        // }
+        // public function donations_pdf()
+        // {
+        //     $donations = Donation::all();
+        //     $pdf = PDF::loadView('reports.donations', compact('donations'));
+        //     return $pdf->stream();
+        // }
+        // public function blood_pdf(Request $request)
+        // {
+        //     $blood = Blood::whereNull('issued_at')->whereNull('discarded_at')->get();
+        //     $pdf = PDF::loadView('reports.blood', compact('blood'));
+        //     return $pdf->stream();
+        // }
+        // public function plasma_pdf(Request $request)
+        // {
+        //     $plasma = Plasma::whereNull('issued_at')->whereNull('discarded_at')->get();
+        //     $pdf = PDF::loadView('reports.plasma', compact('plasma'));
+        //     return $pdf->stream();
+        // }
+        // public function platelets_pdf(Request $request)
+        // {
+        //     $platelets = Platelet::whereNull('issued_at')->whereNull('discarded_at')->get();
+        //     $pdf = PDF::loadView('reports.platelets', compact('platelets'));
+        //     return $pdf->stream();
+        // }
+        // public function rbc_pdf(Request $request)
+        // {
+        //     $rbc = Rbc::whereNull('issued_at')->whereNull('discarded_at')->get();
+        //     $pdf = PDF::loadView('reports.rbc', compact('rbc'));
+        //     return $pdf->stream();
+        // }
+        //  public function issued_plasma_pdf(Request $request)
+        // {
+        //     $plasma = IssuedPlasma::all();
+        //     $pdf = PDF::loadView('reports.issued_plasma', compact('plasma'));
+        //     return $pdf->stream();
+        // }
+        // public function issued_platelets_pdf(Request $request)
+        // {
+        //     $platelets = IssuedPlatelet::all();
+        //     $pdf = PDF::loadView('reports.issued_platelets', compact('platelets'));
+        //     return $pdf->stream();
+        // }
+        // public function issued_rbc_pdf(Request $request)
+        // {
+        //     $rbc = IssuedRbc::all();
+        //     $pdf = PDF::loadView('reports.issued_rbc', compact('rbc'));
+        //     return $pdf->stream();
+        // }
+        // public function issued_blood_pdf(Request $request)
+        // {
+        //     $blood = IssuedBlood::all();
+        //     $pdf = PDF::loadView('reports.issued_blood', compact('blood'));
+        //     return $pdf->stream();
+        // }
+        // public function discarded_plasma_pdf(Request $request)
+        // {
+        //     $plasma = DiscardedPlasma::all();
+        //     $pdf = PDF::loadView('reports.discarded_plasma', compact('plasma'));
+        //     return $pdf->stream();
+        // }
+        // public function discarded_platelets_pdf(Request $request)
+        // {
+        //     $platelets = DiscardedPlatelet::all();
+        //     $pdf = PDF::loadView('reports.discarded_platelets', compact('platelets'));
+        //     return $pdf->stream();
+        // }
+        // public function discarded_rbc_pdf(Request $request)
+        // {
+        //     $rbc = DiscardedRbc::all();
+        //     $pdf = PDF::loadView('reports.discarded_rbc', compact('rbc'));
+        //     return $pdf->stream();
+        // }
+        // public function discarded_blood_pdf(Request $request)
+        // {
+        //     $blood = DiscardedBlood::all();
+        //     $pdf = PDF::loadView('reports.discarded_blood', compact('blood'));
+        //     return $pdf->stream();
+        // }
 
     //     /******************** ADMIN CHARTS- MANAGEMENT *****************************/
     //     public function donors_charts()

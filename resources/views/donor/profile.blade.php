@@ -11,7 +11,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{ url('home/profile/'.$user->id) }}" method="POST" aria-label="{{ __('Profile') }}"">
+                    <form action="{{ url('home/profile/'.$user->id) }}" method="POST" aria-label="{{ __('Profile') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group">

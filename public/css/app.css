@@ -1,17 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
-/*!
- * Bootstrap v4.6.0 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
   --purple: #9561e2;
   --pink: #f66d9b;
-  --red: #e3342f;
+  --red: #800000;
   --orange: #f6993f;
   --yellow: #ffed4a;
   --green: #38c172;
@@ -472,6 +466,7 @@ mark,
   max-width: 100%;
   height: auto;
 }
+
 
 .img-thumbnail {
   padding: 0.25rem;
@@ -3952,6 +3947,8 @@ input[type=button].btn-block {
 .tab-content > .active {
   display: block;
 }
+
+
 
 .navbar {
   position: relative;
@@ -10008,7 +10005,7 @@ h3 {
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: red;
+  background: #800000;
   color: #fff;
   height: 40px;
   font-size: 16px;
@@ -10103,7 +10100,7 @@ h3 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: red;
+  color: #800000;
 }
 
 .nav-menu .drop-down ul {
@@ -10323,7 +10320,7 @@ section {
   display: block;
   width: 50px;
   height: 3px;
-  background: red;
+  background: #800000 ;
   bottom: 0;
   left: calc(50% - 25px);
 }
@@ -10366,7 +10363,7 @@ section {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 50px;
-  border-top: 4px solid indianred;
+  border-top: 4px solid #800000; /* Deep red */
 }
 
 @media (max-width: 1200px) {
@@ -10375,6 +10372,7 @@ section {
     margin-right: 50px;
   }
 }
+
 #hero h2 {
   color: #2f2f2f;
   margin-bottom: 20px;
@@ -10425,13 +10423,14 @@ section {
     top: 66px;
   }
 }
+
 #hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
   background: none;
   font-size: 36px;
   line-height: 1;
   width: auto;
   height: auto;
-  background: rgba(63, 187, 192, 0.4);
+  background: rgba(128, 0, 0, 0.4); /* Deep red */
   border-radius: 50px;
   padding: 10px;
   transition: 0.3s;
@@ -10439,7 +10438,7 @@ section {
 }
 
 #hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
-  background: rgba(63, 187, 192, 0.6);
+  background: rgba(128, 0, 0, 0.6); /* Deep red */
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -10457,7 +10456,7 @@ section {
 
 #hero .carousel-indicators li.active {
   opacity: 1;
-  background: red;
+  background: #800000; /* Deep red */
 }
 
 #hero .btn-get-started {
@@ -10473,11 +10472,11 @@ section {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  background: red;
+  background: #800000; /* Deep red */
 }
 
 #hero .btn-get-started:hover {
-  background: indianred;
+  background: #8B0000; /* Dark red */
 }
 
 @media (max-width: 992px) {
@@ -10489,23 +10488,27 @@ section {
     margin-top: 100px;
   }
 }
+
 @media (max-width: 768px) {
   #hero h2 {
     font-size: 28px;
   }
 }
+
 @media (min-width: 1024px) {
   #hero .carousel-control-prev, #hero .carousel-control-next {
     width: 5%;
   }
 }
+
 @media (max-height: 500px) {
   #hero {
     height: 160vh;
   }
 }
+
 /*********************************************/
-/*              CAROUSEL CSS                  "/
+/*              CAROUSEL CSS                 */
 /*********************************************/
 .col-center {
   margin: 0 auto;
@@ -10551,7 +10554,7 @@ section {
 
 .carousel .overview b {
   text-transform: uppercase;
-  color: red;
+  color: #800000; /* Deep red */
 }
 
 .carousel .carousel-control {
@@ -10589,9 +10592,18 @@ section {
 }
 
 .carousel-indicators li.active {
-  background: red;
+  background: #800000; /* Deep red */
   box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
 }
+
+
+
+/* You can also set a border for other elements if needed */
+.about img {
+  border: 2px solid #800000; /* Optional: border for the image */
+}
+
+
 
 /*--------------------------------------------------------------
 # Counts For Accomplishments
@@ -10609,7 +10621,7 @@ section {
 .counts .count-box i {
   display: block;
   font-size: 30px;
-  color: red;
+  color: #800000;
   float: left;
 }
 
@@ -10641,6 +10653,23 @@ section {
 
 .counts .count-box a:hover {
   color: #3fbbc0;
+}
+
+.icon-custom {
+  color: #800000; /* Deep red color */
+  margin-right: 8px; /* Space after the icon */
+}
+
+.objectives {
+  margin-top: 20px; /* Adjust the value as needed */
+}
+
+.objectives h4 {
+  margin-top: 20px; /* Adjust the value to add space above the heading */
+}
+
+#donation .icon i {
+  color: #800000;
 }
 
 /*--------------------------------------------------------------
@@ -10697,7 +10726,7 @@ section {
   display: block;
   width: 50px;
   height: 2px;
-  background: red;
+  background: #800000;
   bottom: 0;
   left: calc(50% - 25px);
 }
@@ -10734,16 +10763,16 @@ section {
 }
 
 .departments .nav-link:hover h4 {
-  color: red;
+  color: #800000;
 }
 
 .departments .nav-link.active {
   background: #f7fcfc;
-  border-color: red;
+  border-color: #800000;
 }
 
 .departments .nav-link.active h4 {
-  color: red;
+  color: #800000;
 }
 
 .departments .tab-pane.active {

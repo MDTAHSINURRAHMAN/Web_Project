@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Hospital;
 
@@ -109,7 +109,13 @@ class HospitalController extends Controller
            'phone' => $request['phone'],
            'county' => $request['county'],
        ];
-       $this->validate($request, $constraints);
+        // Validate the request data
+        $validator = Validator::make($input, $constraints);
+    
+        // Check if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
        Hospital::where('id', $id)
            ->update($input);
        return redirect('admin/hospitals/')->with('success', 'Hospital updated successfully!');

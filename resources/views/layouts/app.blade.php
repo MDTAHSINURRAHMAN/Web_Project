@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicons -->
-    <link href="{{ asset('site/img/logo.png') }}" rel="icon">
+    <link href="{{ asset('site/img/dream.jpg') }}" rel="icon">
     {{-- <link href="img/logo.png" rel="icon">
     <!-- CSS -->
     <link rel="stylesheet" href="css/all.css" />
@@ -51,10 +51,10 @@
 <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
 <div class="container d-flex align-items-center justify-content-between">
     <div class="d-flex align-items-center">
-        <i class="icofont-clock-time"></i> Monday - Saturday, 7AM to 10PM
+        <i class="icofont-clock-time"></i> Saturday - Thrusday, 7AM to 10PM
     </div>
     <div class="d-flex align-items-center">
-        <i class="icofont-phone"></i> Call us now +254 299-999-999
+        <i class="icofont-phone"></i> Call us now +880 1799-303603
     </div>
 </div>
 </div>
@@ -71,7 +71,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <p class="text-center white">2021 © BBMS. All Rights Reserved.</p>
+                <p class="text-center white">2024 © Dream. All Rights Reserved.</p>
             </div>
         </div>
     </div>

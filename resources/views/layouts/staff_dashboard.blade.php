@@ -217,7 +217,7 @@
                 </li>
                 </ul>
             </li>
-            <li class="nav-item has-treeview">
+            {{-- <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="fa fa-ambulance"></i>
                   <p>
@@ -239,7 +239,7 @@
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> --}}
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="fa fa-users"></i>
@@ -263,7 +263,7 @@
                 </li>
                 </ul>
               </li>
-              <li class="nav-item has-treeview">
+              {{-- <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="fa fa-handshake"></i>
                   <p>
@@ -360,8 +360,8 @@
                     </a>
                   </li>
                   </ul>
-              </li>
-              <li class="nav-item has-treeview">
+              </li> --}}
+              {{-- <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="fa fa-minus-circle"></i>
                   <p>
@@ -401,8 +401,8 @@
                       </a>
                     </li>
                   </ul>
-              </li>
-          <li class="nav-item has-treeview">
+              </li> --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-minus-circle"></i>
               <p>
@@ -471,8 +471,8 @@
                     </a>
                 </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-book"></i>
               <p>
@@ -513,7 +513,7 @@
               </li>
 
             </ul>
-          </li>
+          </li> --}}
 
         </ul>
       </nav>
@@ -599,7 +599,7 @@
 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2021 <a href="#">BBMS</a>.</strong>
+    <strong>Copyright &copy; 2024 <a href="#">Dream</a>.</strong>
     All rights reserved.
   </footer>
 
