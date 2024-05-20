@@ -350,51 +350,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/discarded-rbc', 'App\Http\Controllers\AdminController@discarded_rbc');
 
     // Report management routes
-    Route::get('/reports/donors', 'App\Http\Controllers\AdminController@donors_pdf');
-    Route::get('/reports/staff', 'App\Http\Controllers\AdminController@staff_pdf');
-    Route::get('/reports/donations', 'App\Http\Controllers\AdminController@donations_pdf');
-    Route::get('/reports/blood', 'App\Http\Controllers\AdminController@blood_pdf');
-    Route::get('/reports/plasma', 'App\Http\Controllers\AdminController@plasma_pdf');
-    Route::get('/reports/platelets', 'App\Http\Controllers\AdminController@platelets_pdf');
-    Route::get('/reports/rbc', 'App\Http\Controllers\AdminController@rbc_pdf');
-
-    Route::get('/reports/issued-plasma', 'App\Http\Controllers\AdminController@issued_plasma_pdf');
-    Route::get('/reports/issued-platelets', 'App\Http\Controllers\AdminController@issued_platelets_pdf');
-    Route::get('/reports/issued-rbc', 'App\Http\Controllers\AdminController@issued_rbc_pdf');
-    Route::get('/reports/issued-blood', 'App\Http\Controllers\AdminController@issued_blood_pdf');
-
-    Route::get('/reports/discarded-plasma', 'App\Http\Controllers\AdminController@discarded_plasma_pdf');
-    Route::get('/reports/discarded-platelets', 'App\Http\Controllers\AdminController@discarded_platelets_pdf');
-    Route::get('/reports/discarded-rbc', 'App\Http\Controllers\AdminController@discarded_rbc_pdf');
-    Route::get('/reports/discarded-blood', 'App\Http\Controllers\AdminController@discarded_blood_pdf');
+   
 
     // Chart management routes
-    Route::get('/charts/donors', 'App\Http\Controllers\AdminController@donors_charts');
-    Route::get('/charts/staff', 'App\Http\Controllers\AdminController@staff_charts');
-
-    Route::get('/charts/donations', 'App\Http\Controllers\AdminController@donations_charts');
-
-    Route::get('/charts/blood', 'App\Http\Controllers\AdminController@blood_charts');
-    Route::get('/charts/plasma', 'App\Http\Controllers\AdminController@plasma_charts');
-    Route::get('/charts/platelets', 'App\Http\Controllers\AdminController@platelets_charts');
-    Route::get('/charts/rbc', 'App\Http\Controllers\AdminController@rbc_charts');
-
-    Route::get('/charts/issued-plasma', 'App\Http\Controllers\AdminController@issued_plasma_charts');
-    Route::get('/charts/issued-platelets', 'App\Http\Controllers\AdminController@issued_platelets_charts');
-    Route::get('/charts/issued-rbc', 'App\Http\Controllers\AdminController@issued_rbc_charts');
-    Route::get('/charts/issued-blood', 'App\Http\Controllers\AdminController@issued_blood_charts');
-
-    Route::get('/charts/discarded-plasma', 'App\Http\Controllers\AdminController@discarded_plasma_charts');
-    Route::get('/charts/discarded-platelets', 'App\Http\Controllers\AdminController@discarded_platelets_charts');
-    Route::get('/charts/discarded-rbc', 'App\Http\Controllers\AdminController@discarded_rbc_charts');
-    Route::get('/charts/discarded-blood', 'App\Http\Controllers\AdminController@discarded_blood_charts');
-
-    Route::get('/chart', 'App\Http\Controllers\AdminController@statistics');
-    Route::get('/highchart', 'App\Http\Controllers\AdminController@highchart');
-    Route::get('/blood-trends', 'App\Http\Controllers\StatisticsController@blood_highchart');
-    Route::get('/plasma-trends', 'App\Http\Controllers\StatisticsController@plasma_highchart');
-    Route::get('/platelets-trends', 'App\Http\Controllers\StatisticsController@platelets_highchart');
-    Route::get('/rbc-trends', 'App\Http\Controllers\StatisticsController@rbc_highchart');
+   
 
     // Site management routes
     Route::get('/faqs', 'App\Http\Controllers\AdminController@faqs');
