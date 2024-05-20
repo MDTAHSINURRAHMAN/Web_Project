@@ -222,12 +222,12 @@
                       <p>Staff</p>
                     </a>
              </li>
-             {{-- <li class="nav-item">
+             <li class="nav-item">
                 <a href="{{ URL::to('admin/unapproved-drives') }}" class="nav-link">
                   <i class="fa fa-ambulance"></i>
                   <p>Drives</p>
                 </a>
-         </li> --}}
+         </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -334,29 +334,6 @@
               </li>
             </ul>
           </li>
-          {{-- <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="fa fa-university"></i>
-              <p>
-                Hospitals
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ URL::to('admin/hospitals') }}" class="nav-link">
-                  <i class="fa fa-university"></i>
-                  <p>All Hospitals</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ URL::to('admin/hospital/add') }}" class="nav-link">
-                  <i class="fa fa-plus-circle"></i>
-                  <p>New Hospital</p>
-                </a>
-              </li>
-            </ul>
-          </li> --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="fa fa-handshake"></i>

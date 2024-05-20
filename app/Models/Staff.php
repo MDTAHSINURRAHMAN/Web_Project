@@ -31,10 +31,6 @@ class Staff extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function donations()
-    {
-        return $this->hasMany(Donation::class);
-    }
 
     public function blood()
     {
@@ -44,21 +40,6 @@ class Staff extends Authenticatable
     public function issued_blood()
     {
         return $this->hasMany(IssuedBlood::class);
-    }
-
-     public function rbc()
-    {
-        return $this->hasMany(Rbc::class);
-    }
-
-    public function platelets()
-    {
-        return $this->hasMany(Platelet::class);
-    }
-
-    public function plasma()
-    {
-        return $this->hasMany(Plasma::class);
     }
 
     public function bank()
@@ -74,11 +55,6 @@ class Staff extends Authenticatable
     public function appointments()
     {
         return $this->hasMany(Appointment::class);
-    }
-
-    public function requests()
-    {
-        return $this->hasMany(HospitalRequest::class);
     }
 
     // public static function generatePassword()

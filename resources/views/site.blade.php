@@ -537,23 +537,26 @@
         <!-- ======= Start FAQ's  Section ======= -->
         <section id="faq" class="faq section-bg">
             <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Frequently Asked Questioins</h2>
-                <p>
-                    "Answers to Common Queries"</p>
-            </div>
-
-            <ul>
-                @foreach ($faqs as $faq)
-                <button class="accordion">{{ $faq->question }}</button>
-                <div class="panel">
-                <p>{{ $faq->answer }}</p>
+        
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>"Answers to Common Queries"</p>
                 </div>
-                @endforeach
-
-
-            </ul>
+        
+                <ul>
+                    @foreach ($faqs as $faq)
+                    <li>
+                        <button class="accordion">{{ $faq->question }}</button>
+                        <div class="panel">
+                            <p>{{ $faq->answer }}</p>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+        
+            </div>
+        </section>
+        
 
             </div>
         </section>

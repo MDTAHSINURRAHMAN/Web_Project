@@ -333,9 +333,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/unapproved-drives', 'App\Http\Controllers\AdminController@unapproved_drives');
     Route::get('/drive/approve/{id}', 'App\Http\Controllers\AdminController@approve_drive');
 
-    // Donations view routes
-    Route::get('/donations', 'App\Http\Controllers\AdminController@all_donations');
-
     // Stock view routes
     Route::get('/stock', 'App\Http\Controllers\AdminController@banks_stock');
     Route::get('/stock/show/{id}', 'App\Http\Controllers\AdminController@bank_stock');
